@@ -169,10 +169,9 @@ You must update the security rules for both Firestore and Storage to allow your 
 
 Go to Firestore Database -> Rules tab.
 
+Copy the entire contents and paste them into the console's editor, replacing any existing text.
 
-
-
-
+Click "Publish".
 
 ### **5. Create an Admin User**
 
@@ -188,13 +187,7 @@ Create a new collection named users.
 
 Click "Add document" and paste your User UID as the Document ID.
 
-Add one field:
-
-Field name: role
-
-Type: string
-
-Value: admin
+Add one field
 
 Save the document.
 
