@@ -21,10 +21,12 @@ import 'screens/camouflage_page.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-    // Use platform-specific Firebase options (auto-detects web, windows, etc.)
+    // platform-specific Firebase options (auto-detects web, windows, etc.)
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  // Initialize the panic exit functionality
+  PanicExitPage.initialize();
 
   runApp(const GBVReportingApp());
 }
@@ -34,7 +36,7 @@ class GBVReportingApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'SautiSafe',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
