@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "658095246547",
+    "project_id": "gbv-reporting-app-d097d",
+    "storage_bucket": "gbv-reporting-app-d097d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:658095246547:android:5998149555b7499e3bd826",
+        "android_client_info": {
+          "package_name": "com.example.gbv_reporting_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzaFv3q2-Q8n4TVrUO1-wCAmmXppbGPbM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
