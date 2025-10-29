@@ -169,48 +169,10 @@ You must update the security rules for both Firestore and Storage to allow your 
 
 Go to Firestore Database -> Rules tab.
 
-Paste in the following rules and click Publish:
-```
-rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
 
-    // Users can read their OWN document, but no one can write
-    match /users/{userId} {
-      allow read: if request.auth != null && request.auth.uid == userId;
-      allow write: if false; 
-    }
 
-    // Any logged-in user can CREATE a new report
-    match /reports/{reportId} {
-      allow create: if request.auth != null;
-      allow read, update, delete: if request.auth != null;
-    } 
 
-    // Any logged-in user can CREATE (send) a new SOS alert
-    match /sos_alerts/{alertId} {
-      allow create: if request.auth != null;
-      allow read: if request.auth != null; 
-    }
-  }
-}
-```
 
-### **B. Storage Rules**
-Go to Storage -> Rules tab.
-
-Paste in the following rules and click Publish:
-```
-rules_version = '2';
-service firebase.storage {
-  match /b/{bucket}/o {
-    // Allow file uploads and reads only if a user is logged in
-    match /{allPaths=**} {
-      allow read, write: if request.auth != null;
-    }
-  }
-}
-```
 
 ### **5. Create an Admin User**
 
