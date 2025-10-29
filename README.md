@@ -1,14 +1,14 @@
-GBV Reporting Application (Sauti Safe)
+# **GBV Reporting Application (Sauti Safe)**
 
 This is a Flutter-based mobile application designed to provide a secure and confidential platform for reporting incidents of Gender-Based Violence (GBV). It empowers survivors and witnesses to safely document incidents, seek immediate help, and access vital resources.
 
 The app is built with a backend on Firebase, ensuring that data is stored securely and can be accessed by authorized administrators for intervention.
 
-🚀 Core Features
+## **🚀 Core Features**
 
 Secure User Authentication: Safe and secure email/password login and registration.
 
-Role-Based Access:
+**Role-Based Access:**
 
 User Role: Can access all user-facing features.
 
@@ -24,11 +24,11 @@ Evidence Upload: Users can attach evidence (photos, videos, or audio recordings)
 
 Panic Exit Feature: Users can shake their device to immediately log out and close the app, redirecting to a "camouflage" screen for safety.
 
-💡 Application Logic (How it Works)
+## 💡 **Application Logic (How it Works)**
 
 This section details the technical flow for the app's most important features.
 
-1. Admin Access (Role-Based Logic)
+### **1. Admin Access (Role-Based Logic)**
 
 A user logs in using Firebase Authentication.
 
@@ -42,7 +42,7 @@ It checks that document for a field: role == "admin".
 
 If true, a state variable _isAdmin is set, and the Admin Panel tab is dynamically added to the bottom navigation bar.
 
-2. Real-Time SOS Alert Flow
+### **2. Real-Time SOS Alert Flow**
 
 The user taps the "Send SOS Alert" button on the RealTimeSOSPage.
 
@@ -52,7 +52,7 @@ This data, along with a FieldValue.serverTimestamp(), is written as a new docume
 
 The action is secured by Firestore Rules, which only allow this write (allow create) if the user is authenticated (request.auth != null).
 
-3. Report Submission with Evidence
+### **3. Report Submission with Evidence**
 
 The user fills out the form on ReportCasePage and attaches files (e.g., a photo) using image_picker or file_picker.
 
@@ -64,7 +64,7 @@ After the upload is complete, the app gets the file's permanent downloadUrl.
 
 Once all files are uploaded, the app creates a single document in the reports collection in Cloud Firestore. This document contains the text from the form fields and a list (evidenceUrls) containing all the downloadUrl strings.
 
-4. Panic Exit (Shake Detection)
+### **4. Panic Exit (Shake Detection)**
 
 The PanicExitPage.initialize() method is called when the app starts.
 
@@ -74,7 +74,7 @@ The app monitors the G-force on the device. If the force exceeds a set threshold
 
 This function uses Get.offAll() to immediately clear the entire navigation history (removing all sensitive pages from memory) and replace the screen with a harmless CamouflagePage.
 
-🛠️ Technology Stack
+## **🛠️ Technology Stack**
 
 Framework: Flutter (Dart)
 
@@ -86,7 +86,7 @@ File Storage: Firebase Storage
 
 Authentication: Firebase Authentication
 
-Key Packages:
+## **Key Packages:**
 
 cloud_firestore & firebase_auth & firebase_storage
 
@@ -100,7 +100,7 @@ url_launcher (for calling/texting helplines)
 
 get (for state management and navigation)
 
-⚙️ Getting Started (Setup Instructions)
+## **⚙️ Getting Started (Setup Instructions)**
 
 To run this project locally for evaluation, follow these steps.
 
@@ -112,18 +112,18 @@ A code editor (like VS Code or Android Studio)
 
 An Android device or emulator
 
-1. Clone the Repository
+### **1. Clone the Repository**
 
 git clone [https://your-repository-url.git](https://your-repository-url.git)
 cd gbv_reporting_app
 
 
-2. Install Dependencies
+### **2. Install Dependencies**
 
 flutter pub get
 
 
-3. Configure Firebase
+### **3. Configure Firebase**
 
 This is the most important step. The app will not run without a Firebase project.
 
@@ -161,16 +161,16 @@ Firestore Database: Go to the "Firestore Database" tab, click "Create database,"
 
 Storage: Go to the "Storage" tab, click "Get started," and follow the prompts (it will work now that your project is on the "Blaze" plan).
 
-4. Set Up Security Rules
+### **4. Set Up Security Rules**
 
 You must update the security rules for both Firestore and Storage to allow your app to work.
 
-A. Firestore Rules
+### **A. Firestore Rules**
 
 Go to Firestore Database -> Rules tab.
 
 Paste in the following rules and click Publish:
-
+```
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
@@ -194,14 +194,13 @@ service cloud.firestore {
     }
   }
 }
+```
 
-
-B. Storage Rules
-
+### **B. Storage Rules**
 Go to Storage -> Rules tab.
 
 Paste in the following rules and click Publish:
-
+```
 rules_version = '2';
 service firebase.storage {
   match /b/{bucket}/o {
@@ -211,9 +210,9 @@ service firebase.storage {
     }
   }
 }
+```
 
-
-5. Create an Admin User
+### **5. Create an Admin User**
 
 To test the Admin Panel, you must manually give your user an "admin" role.
 
@@ -239,8 +238,9 @@ Save the document.
 
 Log out of the app and log back in. The "Admin" tab will now appear.
 
-6. Run the App
+### **6. Run the App**
 
 You are all set!
-
+``
 flutter run
+```
