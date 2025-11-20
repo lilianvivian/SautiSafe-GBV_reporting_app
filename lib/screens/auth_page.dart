@@ -18,6 +18,7 @@ class _AuthPageState extends State<AuthPage> {
 
   bool _isLogin = true;
   bool _loading = false;
+  bool _isObscure = true;
 
   @override
   void dispose() {
@@ -91,8 +92,6 @@ class _AuthPageState extends State<AuthPage> {
     }
   }
 
-  // --- REMOVED the _resetPassword function ---
-  // It's now handled by forgot_password_page.dart
 
   @override
   Widget build(BuildContext context) {
@@ -112,7 +111,6 @@ class _AuthPageState extends State<AuthPage> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  // --- Added Icon ---
                   Icon(
                     Icons.lock_person,
                     size: 60,
@@ -147,8 +145,20 @@ class _AuthPageState extends State<AuthPage> {
                   // Password
                   TextFormField(
                     controller: _passwordController,
-                    decoration: const InputDecoration(labelText: 'Password'),
-                    obscureText: true,
+                    decoration: InputDecoration(
+                      labelText: 'Password',
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          _isObscure ? Icons.visibility : Icons.visibility_off,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            _isObscure = !_isObscure;
+                          });
+                        },
+                      ),
+                    ),
+                    obscureText: _isObscure,
                     autofillHints: const [AutofillHints.password],
                     textInputAction: TextInputAction.done,
                     onEditingComplete: _submitAuthForm,
@@ -161,9 +171,8 @@ class _AuthPageState extends State<AuthPage> {
                   ),
                   const SizedBox(height: 10),
 
-                  // ---
-                  // --- THIS BLOCK IS NOW SYNTACTICALLY CORRECT ---
-                  // ---
+                 
+                  
                   // Forgot Password (visible only in login mode)
                   if (_isLogin)
                     Align(
@@ -174,15 +183,15 @@ class _AuthPageState extends State<AuthPage> {
                             context,
                             MaterialPageRoute(
                               builder: (context) => const ForgotPasswordPage(),
-                            ), // Close MaterialPageRoute
-                          ); // Close Navigator.push
-                        }, // Close onPressed
+                            ), 
+                          );
+                        }, 
                         child: const Text(
                           'Forgot Password?',
                           style: TextStyle(color: Color(0xFF7A3E9D)),
                         ),
-                      ), // Close TextButton
-                    ), // Close Align
+                      ), 
+                    ), 
 
                   const SizedBox(height: 10),
 
@@ -193,9 +202,14 @@ class _AuthPageState extends State<AuthPage> {
                           onPressed: _submitAuthForm,
                           style: ElevatedButton.styleFrom(
                               backgroundColor: const Color(0xFF8E44AD),
+                              foregroundColor: Colors.black,
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 50, vertical: 12),
-                              textStyle: const TextStyle(fontSize: 16)),
+                              textStyle: const TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                ),
+                          ),
                           child: Text(
                             _isLogin ? 'Login' : 'Sign Up',
                           ),
@@ -222,7 +236,7 @@ class _AuthPageState extends State<AuthPage> {
           ),
         ),
       ),
-    ); // Close Scaffold
+    ); 
   }
 }
 

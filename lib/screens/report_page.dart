@@ -11,7 +11,6 @@ import 'package:path/path.dart' as p;
 import 'disclaimer_page.dart';
 
 class ReportCasePage extends StatefulWidget {
-  // This constructor is now simple
   const ReportCasePage({super.key});
 
   @override
@@ -37,33 +36,28 @@ class _ReportCasePageState extends State<ReportCasePage> {
     super.dispose();
   }
 
-  // --- THIS FUNCTION IS NOW FULLY CORRECTED ---
   Future<void> _submitReport() async {
-    // 1. Show the disclaimer page first
     final bool? didAgree = await Navigator.push<bool>(
       context,
       MaterialPageRoute(builder: (context) => const DisclaimerPage()),
     );
 
-    // 2. Check if the user agreed
     if (didAgree != true) {
-      // If they didn't agree, show a message and stop.
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
               content: Text("You must agree to the disclaimer to submit.")),
         );
       }
-      return; // Stop the function here
+      return; 
     }
 
-    // 3. If they DID agree, continue with the report submission
     if (!_formKey.currentState!.validate()) return;
 
     setState(() => _isSubmitting = true);
 
     try {
-      // Step 1 - Upload files to Firebase Storage
+      // Uploading files to Firebase Storage
       List<String> evidenceUrls = [];
       final storageRef = FirebaseStorage.instance.ref();
 
@@ -78,7 +72,6 @@ class _ReportCasePageState extends State<ReportCasePage> {
         evidenceUrls.add(downloadUrl);
       }
 
-      // Step 2: Add report details (including URLs) to Firestore
       await FirebaseFirestore.instance.collection('reports').add({
         'incident': _incidentController.text.trim(),
         'location': _locationController.text.trim(),
@@ -440,18 +433,23 @@ class _ReportCasePageState extends State<ReportCasePage> {
                   onPressed: _isSubmitting ? null : _submitReport,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF8E44AD),
+                    foregroundColor: Colors.black,
                     padding: const EdgeInsets.symmetric(vertical: 16),
+                    textStyle: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),
                   ),
                   child: _isSubmitting
-                      ? const CircularProgressIndicator(color: Colors.white)
+                      ? const CircularProgressIndicator(color: Colors.black)
                       : const Text(
                           "Submit Report",
                           style: TextStyle(
                             fontSize: 18,
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                 ),
