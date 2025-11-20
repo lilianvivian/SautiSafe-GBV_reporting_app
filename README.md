@@ -1,5 +1,6 @@
 # **GBV Reporting Application (Sauti Safe)**
-### [Click Here to View Live Demo] (https://gbv-reporting-app-d097d.web.app)
+### [Click Here to View Live Demo](https://gbv-reporting-app-d097d.web.app)
+
 This is a Flutter-based mobile application designed to provide a secure and confidential platform for reporting incidents of Gender-Based Violence (GBV). It empowers survivors and witnesses to safely document incidents, seek immediate help, and access vital resources.
 
 The app is built with a backend on Firebase, ensuring that data is stored securely and can be accessed by authorized administrators for intervention.
@@ -114,13 +115,15 @@ An Android device or emulator
 
 ### **1. Clone the Repository**
 
-git clone [https://your-repository-url.git](https://your-repository-url.git)
-cd gbv_reporting_app
-
+git clone the repository
 
 ### **2. Install Dependencies**
 
 flutter pub get
+
+### **3. Download the Android App (For Full Testing)
+The mobile application must be installed on a physical device to properly test the Panic Exit (Shake) and Emergency Call/SMS features.
+### [DOWNLOAD GBV Sauti Safe (Android APK)](https://drive.google.com/file/d/17kk74MKVvCnCc169_HVybaCaf7KqK7dy/view?usp=drive_link)
 
 
 ### **3. Configure Firebase**
