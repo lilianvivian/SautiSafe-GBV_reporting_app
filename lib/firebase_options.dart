@@ -23,15 +23,9 @@ class DefaultFirebaseOptions {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for ios - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         return windows;
       case TargetPlatform.linux:
@@ -47,30 +41,49 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCio_W6LM3vvOmdVjVLaFGyxkCvSTV2-18',
+    apiKey: 'AIzaSyAqYmO7X7LOzrk_v4kelpfpDqAiXxxf6mw',
     appId: '1:658095246547:web:89ac1fd5df26b83e3bd826',
     messagingSenderId: '658095246547',
     projectId: 'gbv-reporting-app-d097d',
     authDomain: 'gbv-reporting-app-d097d.firebaseapp.com',
-    storageBucket: 'gbv-reporting-app-d097d.appspot.com',
+    storageBucket: 'gbv-reporting-app-d097d.firebasestorage.app',
     measurementId: 'G-MCC2L982S5',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDzaFv3q2-Q8n4TVrUO1-wCAmmXppbGPbM',
+    apiKey: 'AIzaSyC5OGuSqbBZ0T7odoFoMhVZ5XtJFNGqQRk',
     appId: '1:658095246547:android:5998149555b7499e3bd826',
     messagingSenderId: '658095246547',
     projectId: 'gbv-reporting-app-d097d',
-    storageBucket: 'gbv-reporting-app-d097d.appspot.com',
+    storageBucket: 'gbv-reporting-app-d097d.firebasestorage.app',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyCio_W6LM3vvOmdVjVLaFGyxkCvSTV2-18',
+    apiKey: 'AIzaSyBczfA0QC46Jarm-5joxRgWhJ4AMfq_dnQ',
     appId: '1:658095246547:web:06d63f4575319ba83bd826',
     messagingSenderId: '658095246547',
     projectId: 'gbv-reporting-app-d097d',
     authDomain: 'gbv-reporting-app-d097d.firebaseapp.com',
-    storageBucket: 'gbv-reporting-app-d097d.appspot.com',
+    storageBucket: 'gbv-reporting-app-d097d.firebasestorage.app',
     measurementId: 'G-9YCFG8V12L',
   );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyAwDn2N7h9UzBZVpGH_Sd9OkpSVo2t1aYM',
+    appId: '1:658095246547:ios:70b1476f486651113bd826',
+    messagingSenderId: '658095246547',
+    projectId: 'gbv-reporting-app-d097d',
+    storageBucket: 'gbv-reporting-app-d097d.firebasestorage.app',
+    iosBundleId: 'com.example.gbvReportingApp',
+  );
+
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyAwDn2N7h9UzBZVpGH_Sd9OkpSVo2t1aYM',
+    appId: '1:658095246547:ios:70b1476f486651113bd826',
+    messagingSenderId: '658095246547',
+    projectId: 'gbv-reporting-app-d097d',
+    storageBucket: 'gbv-reporting-app-d097d.firebasestorage.app',
+    iosBundleId: 'com.example.gbvReportingApp',
+  );
+
 }

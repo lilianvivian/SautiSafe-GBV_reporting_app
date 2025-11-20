@@ -123,7 +123,7 @@ flutter pub get
 
 ### **3. Download the Android App (For Full Testing)
 The mobile application must be installed on a physical device to properly test the Panic Exit (Shake) and Emergency Call/SMS features.
-### [DOWNLOAD GBV Sauti Safe (Android APK)](https://drive.google.com/file/d/17kk74MKVvCnCc169_HVybaCaf7KqK7dy/view?usp=drive_link)
+### [DOWNLOAD GBV Sauti Safe (Android APK)](https://drive.google.com/file/d/18DvVDOg7uPlyKU1WCbz-tE5Arys9J82o/view?usp=drive_link)
 
 
 ### **3. Configure Firebase**
