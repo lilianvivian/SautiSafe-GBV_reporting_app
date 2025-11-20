@@ -1,1 +1,37 @@
-{"flutter":{"platforms":{"android":{"default":{"projectId":"gbv-reporting-app-d097d","appId":"1:658095246547:android:5998149555b7499e3bd826","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"gbv-reporting-app-d097d","configurations":{"android":"1:658095246547:android:5998149555b7499e3bd826","web":"1:658095246547:web:89ac1fd5df26b83e3bd826","windows":"1:658095246547:web:06d63f4575319ba83bd826"}}}}}}
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "gbv-reporting-app-d097d",
+          "appId": "1:658095246547:android:5998149555b7499e3bd826",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "gbv-reporting-app-d097d",
+          "configurations": {
+            "android": "1:658095246547:android:5998149555b7499e3bd826",
+            "web": "1:658095246547:web:89ac1fd5df26b83e3bd826",
+            "windows": "1:658095246547:web:06d63f4575319ba83bd826"
+          }
+        }
+      }
+    }
+  },
+  "hosting": {
+    "public": "build/web",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
