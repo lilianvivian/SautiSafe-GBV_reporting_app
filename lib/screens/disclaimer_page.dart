@@ -111,6 +111,7 @@ class _DisclaimerPageState extends State<DisclaimerPage> {
                 onPressed: _isAgreed ? _onAgree : null, // Button is disabled until checkbox is ticked
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF8E44AD),
+                  foregroundColor: Colors.black,
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
@@ -121,7 +122,7 @@ class _DisclaimerPageState extends State<DisclaimerPage> {
                   "Agree & Continue",
                   style: TextStyle(
                     fontSize: 18,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
